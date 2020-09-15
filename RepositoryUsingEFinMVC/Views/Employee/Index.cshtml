@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RepositoryUsingEFinMVC.DAL.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="container">
+    @Html.ActionLink("Add Employee", "AddEmployee", null, new { @class = "btn btn-info float-right" })
+    <div class="table-responsive-md">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salary)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dept)
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Salary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dept)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditEmployee", new { EmployeeId = item.EmployeeID }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("Delete", "DeleteEmployee", new { EmployeeId = item.EmployeeID }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+   </div>
